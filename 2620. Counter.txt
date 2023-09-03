@@ -1,0 +1,23 @@
+/**
+ * @param {number} n
+ * @return {Function} counter
+ */
+var c = 0
+var prev = null
+var createCounter = function(n) {
+    if(n !== prev) {
+        c = 0
+    }
+    return function() {
+        let tmp = n + c
+        c += 1
+        return tmp
+    };
+};
+
+/** 
+ * const counter = createCounter(10)
+ * counter() // 10
+ * counter() // 11
+ * counter() // 12
+ */
