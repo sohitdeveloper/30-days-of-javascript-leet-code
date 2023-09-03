@@ -1,0 +1,14 @@
+/**
+ * @param {number[]} arr
+ * @param {Function} fn
+ * @return {number[]}
+ */
+var map = function(arr, fn) {
+    let val = []
+    arr.forEach((ele, i) => {
+        let some = 0;
+        some = fn(ele, i)
+        val.push(some)
+    })
+    return val
+};
