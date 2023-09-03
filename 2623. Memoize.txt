@@ -1,0 +1,27 @@
+/**
+* @param {Function} fn
+*/
+function memoize(fn) {
+    var cachedValue = {}
+    return function(...args) {
+        const key = String(args)
+        if(key in cachedValue) {
+            return cachedValue[key]
+        }
+        const a = fn(...args)
+        cachedValue[key] = a
+        return a;
+    }
+}
+
+
+/**
+* let callCount = 0;
+* const memoizedFn = memoize(function (a, b) {
+* callCount += 1;
+* return a + b;
+* })
+* memoizedFn(2, 3) // 5
+* memoizedFn(2, 3) // 5
+* console.log(callCount) // 1
+*/
